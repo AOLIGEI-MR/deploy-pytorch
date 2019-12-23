@@ -2,8 +2,11 @@ FROM centos:7
 
 RUN yum install -y https://centos7.iuscommunity.org/ius-release.rpm && yum update -y && yum upgrade -y
 # this step cannot be combined with the previous one!
-RUN yum install -y python36u
-RUN pip3 install nibabel numpy
+RUN yum install -y python37u
+RUN pip3 install nibabel numpy opencv-python onnxruntime
+
+# Maintainer's name and email address
+MAINTAINER Hanlin Fu araid0628@gmail.com
 
 # Add the user UID:1000, GID:1000, home at /home
 ARG GROUP=user
